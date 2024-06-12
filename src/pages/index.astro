@@ -1,16 +1,33 @@
 ---
+// Layout
+import DefaultLayout from "../layout/default.astro";
 
+// Libs
+import { formatBlogPosts } from "../js/utils";
+// Components
+import Hero from "../components/Hero.astro";
+// Data
+const allPosts = await Astro.glob("../data/*.mdx");
+const filteredPosts = formatBlogPosts(allPosts);
+
+// General Settings
+const title = "Impact Fonds";
+const subtitle = "Duurzame Voedselketen Rotterdam";
+
+console.log(filteredPosts);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<DefaultLayout {title} {subtitle}>
+  <Hero {title} {subtitle} />
+
+  {
+    filteredPosts.map(({ frontmatter, Content }) => (
+      <section class="section col-span-6 p-8">
+        <h2 class="font-bold text-2xl">{frontmatter.title}</h2>
+        <div class="content hide-table-headers prose prose-img:rounded-xl prose-headings:font-bold prose-a:text-blue-600">
+          <Content />
+        </div>
+      </section>
+    ))
+  }
+</DefaultLayout>
