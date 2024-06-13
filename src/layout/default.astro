@@ -1,12 +1,12 @@
 ---
 // Styles
-import "../styles/global.css";
+import '../styles/global.css';
 
 // Components
-import { SEO } from "astro-seo";
+import { SEO } from 'astro-seo';
 
 const { title, subtitle, description } = Astro.props;
-let seo_title = title.concat(" ", subtitle);
+let seo_title = title.concat(' ', subtitle);
 ---
 
 <html lang="en">
@@ -16,27 +16,27 @@ let seo_title = title.concat(" ", subtitle);
       description={description}
       openGraph={{
         basic: {
-          title: "A Very Descriptive Title",
-          type: "A type.",
+          title: 'A Very Descriptive Title',
+          type: 'A type.',
           image:
-            "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+            'https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png',
         },
       }}
       twitter={{
-        creator: "@jonasmerlins1",
+        creator: '@jonasmerlins1',
       }}
       extend={{
         // extending the default link tags
-        link: [{ rel: "icon", href: "/favicon.ico" }],
+        link: [{ rel: 'icon', href: '/favicon.ico' }],
         // extending the default meta tags
         meta: [
           {
-            name: "twitter:image",
+            name: 'twitter:image',
             content:
-              "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+              'https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png',
           },
-          { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
-          { name: "twitter:description", content: "Agent" },
+          { name: 'twitter:title', content: 'Tinker Tailor Soldier Spy' },
+          { name: 'twitter:description', content: 'Agent' },
         ],
       }}
     />
@@ -49,5 +49,13 @@ let seo_title = title.concat(" ", subtitle);
   </head>
   <body class="">
     <slot />
+    <footer class="w-full bg-gray-800">
+      <div class="container mx-auto max-w-screen-lg py-4">
+        <p class="text-center text-white">
+          Impact Fonds Duurzame Voedselketen Rotterdam is een initiatief van
+          Social Impact Fonds Rotterdam en Rotterdam de Boer op!
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

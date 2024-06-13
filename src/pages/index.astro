@@ -10,6 +10,17 @@ import Image from 'astro/components/Image.astro';
 import Hero from '../components/Hero.astro';
 import MDXLoader from '../components/MDXLoader.astro';
 
+// MDX Data Imports
+import Intro from '../data/intro.mdx';
+import Rendement from '../data/rendement.mdx';
+import DealflowText from '../data/dealflow-text.mdx';
+import DealflowTable from '../data/dealflow-table.mdx';
+import Exit from '../data/exit.mdx';
+import Samenwerking from '../data/samenwerking.mdx';
+import Team from '../data/team.mdx';
+import Invest from '../data/invest.mdx';
+import Contact from '../data/contact.mdx';
+
 // Data
 // const allPosts = await Astro.glob('../data/*.mdx');
 // const filteredPosts = formatBlogPosts(allPosts);
@@ -25,7 +36,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
   <div class="content">
     <Hero {title} {subtitle} />
     <section class="intro">
-      <MDXLoader filePath="../data/intro.mdx" />
+      <Intro />
     </section>
 
     <section class="popout">
@@ -40,7 +51,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
     </section>
 
     <section class="">
-      <MDXLoader filePath="../data/rendement.mdx" />
+      <Rendement />
     </section>
 
     <section class="full-width py-12">
@@ -48,22 +59,21 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
       <div class="popout">
         <div class="cols grid gap-8 md:grid-cols-12">
           <div class="md:col-span-8">
-            <MDXLoader filePath="../data/dealflow-text.mdx" />
+            <DealflowText />
           </div>
           <div class="md:col-span-4">
-            <MDXLoader filePath="../data/dealflow-table.mdx" />
+            <DealflowTable />
           </div>
         </div>
       </div>
     </section>
 
     <section class="">
-      <MDXLoader filePath="../data/exit.mdx" />
+      <Exit />
     </section>
 
     <section class="">
-      <!-- Nauwe samenwerking fondsmanager, investment team en programma Rotterdam de boer op! -->
-      <MDXLoader filePath="../data/samenwerking.mdx" />
+      <Samenwerking />
     </section>
 
     <section class="full-left">
@@ -79,13 +89,13 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
 
     <section class="">
       <!-- Nauwe samenwerking fondsmanager, investment team en programma Rotterdam de boer op! -->
-      <MDXLoader filePath="../data/team.mdx" />
+      <Team />
     </section>
 
     <section class="invest full-left grid grid-cols-subgrid py-12">
       <!-- Invest -->
       <div class="">
-        <MDXLoader filePath="../data/invest.mdx" />
+        <Invest />
       </div>
     </section>
 
@@ -94,7 +104,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
     >
       <!-- Invest -->
       <div class="">
-        <MDXLoader filePath="../data/contact.mdx" />
+        <Contact />
       </div>
     </section>
 
@@ -105,15 +115,6 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
       </div>
     </section>
   </div>
-
-  <footer class="w-full bg-gray-800">
-    <div class="container mx-auto max-w-screen-lg py-4">
-      <p class="text-center text-white">
-        Impact Fonds Duurzame Voedselketen Rotterdam is een initiatief van
-        Social Impact Fonds Rotterdam en Rotterdam de Boer op!
-      </p>
-    </div>
-  </footer>
 </DefaultLayout>
 <style is:global>
   body {
