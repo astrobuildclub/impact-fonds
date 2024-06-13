@@ -1,0 +1,6 @@
+---
+const { filePath } = Astro.props;
+const Content = (await import(filePath)).default;
+---
+
+<Content />

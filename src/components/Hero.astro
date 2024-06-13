@@ -1,20 +1,36 @@
 ---
 // Styles
-import "../styles/global.css";
-
+import '../styles/global.css';
+import Share from '../components/Share.astro';
 // Data
 const { title, subtitle } = Astro.props;
 ---
 
-<header class="col-span-12">
-  <h1
-    class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
-  >
-    {title}
-  </h1>
-  <h2
-    class="mb-4 text-4xl font-regular leading-none tracking-tight text-gray-700 md:text-5xl lg:text-6xl dark:text-white"
-  >
-    {subtitle}
-  </h2>
+<header
+  class="full-right hero overlay relative mb-12 grid grid-cols-subgrid content-center"
+>
+  <div class="title">
+    <h1 class="text-white md:text-5xl lg:text-6xl">
+      {title}
+    </h1>
+    <h2 class="text-white md:text-5xl lg:text-6xl">
+      {subtitle}
+    </h2>
+  </div>
+  <Share />
 </header>
+
+<style>
+  .overlay {
+    border-image: linear-gradient(hsla(0, 0%, 0%, 0.291), hsla(0, 0%, 0%, 0.46))
+      fill 1;
+  }
+
+  .hero {
+    background-image: url('/assets/img/img-tractor.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-block-size: calc(30vh + 10vw);
+  }
+</style>

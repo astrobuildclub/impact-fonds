@@ -1,33 +1,192 @@
 ---
 // Layout
-import DefaultLayout from "../layout/default.astro";
+import DefaultLayout from '../layout/default.astro';
+import Image from 'astro/components/Image.astro';
 
 // Libs
-import { formatBlogPosts } from "../js/utils";
+import { formatBlogPosts } from '../js/utils';
+
 // Components
-import Hero from "../components/Hero.astro";
+import Hero from '../components/Hero.astro';
+import MDXLoader from '../components/MDXLoader.astro';
+
 // Data
-const allPosts = await Astro.glob("../data/*.mdx");
+const allPosts = await Astro.glob('../data/*.mdx');
 const filteredPosts = formatBlogPosts(allPosts);
 
 // General Settings
-const title = "Impact Fonds";
-const subtitle = "Duurzame Voedselketen Rotterdam";
+const title = 'Impact Fonds';
+const subtitle = 'Duurzame Voedselketen Rotterdam';
 
-console.log(filteredPosts);
+// console.log(filteredPosts);
 ---
 
 <DefaultLayout {title} {subtitle}>
-  <Hero {title} {subtitle} />
+  <div class="content">
+    <Hero {title} {subtitle} />
+    <section class="intro">
+      <MDXLoader filePath="../data/intro.mdx" />
+    </section>
 
-  {
-    filteredPosts.map(({ frontmatter, Content }) => (
-      <section class="section col-span-6 p-8">
-        <h2 class="font-bold text-2xl">{frontmatter.title}</h2>
-        <div class="content hide-table-headers prose prose-img:rounded-xl prose-headings:font-bold prose-a:text-blue-600">
-          <Content />
+    <section class="popout">
+      <!-- Infrographic -->
+      <Image
+        src="/assets/img/img-infographic.png"
+        alt="Mooi Rotterdams Platteland."
+        width="1600"
+        height="900"
+        class="rounded-xl"
+      />
+    </section>
+
+    <section class="">
+      <MDXLoader filePath="../data/rendement.mdx" />
+    </section>
+
+    <section class="full-width py-12">
+      <!-- Dealflow -->
+      <div class="popout">
+        <div class="cols grid gap-8 md:grid-cols-12">
+          <div class="md:col-span-8">
+            <MDXLoader filePath="../data/dealflow-text.mdx" />
+          </div>
+          <div class="md:col-span-4">
+            <MDXLoader filePath="../data/dealflow-table.mdx" />
+          </div>
         </div>
-      </section>
-    ))
-  }
+      </div>
+    </section>
+
+    <section class="">
+      <MDXLoader filePath="../data/exit.mdx" />
+    </section>
+
+    <section class="">
+      <!-- Nauwe samenwerking fondsmanager, investment team en programma Rotterdam de boer op! -->
+      <MDXLoader filePath="../data/samenwerking.mdx" />
+    </section>
+
+    <section class="full-left">
+      <!-- Boer -->
+      <Image
+        src="/assets/img/img-farmer.png"
+        alt="Mooi Rotterdams Platteland."
+        width="1600"
+        height="900"
+        class="object-cover"
+      />
+    </section>
+
+    <section class="">
+      <!-- Nauwe samenwerking fondsmanager, investment team en programma Rotterdam de boer op! -->
+      <MDXLoader filePath="../data/team.mdx" />
+    </section>
+
+    <section class="invest full-left grid grid-cols-subgrid py-12">
+      <!-- Invest -->
+      <div class="">
+        <MDXLoader filePath="../data/invest.mdx" />
+      </div>
+    </section>
+
+    <section
+      class="contact full-right -mt-16 grid grid-cols-subgrid bg-slate-300 py-12"
+    >
+      <!-- Invest -->
+      <div class="">
+        <MDXLoader filePath="../data/contact.mdx" />
+      </div>
+    </section>
+
+    <section class="partners">
+      <!-- Invest -->
+      <div class="">
+        <h3>Partners</h3>
+      </div>
+    </section>
+  </div>
+
+  <footer class="w-full bg-gray-800">
+    <div class="container mx-auto max-w-screen-lg py-4">
+      <p class="text-center text-white">
+        Impact Fonds Duurzame Voedselketen Rotterdam is een initiatief van
+        Social Impact Fonds Rotterdam en Rotterdam de Boer op!
+      </p>
+    </div>
+  </footer>
 </DefaultLayout>
+<style is:global>
+  body {
+    font-size: 1rem;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-body);
+    overflow-wrap: break-word;
+    text-rendering: optimizeLegibility;
+  }
+
+  h3 {
+    font-size: var(--fs-2xl);
+    line-height: 1;
+    color: red;
+    margin-block: 1.25rem;
+  }
+  p {
+    font-size: var(--fs-base);
+    line-height: 166%;
+    letter-spacing: 0.0125em;
+    margin-block: 1rem;
+  }
+
+  section ul {
+    list-style: none;
+    margin-block: 0.5rem;
+    padding-left: 0;
+    counter-reset: list-counter;
+  }
+
+  section > ul li {
+    counter-increment: list-counter;
+    position: relative;
+    font-size: var(--fs-base);
+    margin-block: 1rem;
+    padding-left: 2.5rem; /* Adjust this based on the size of the circle */
+  }
+
+  section > ul li::before {
+    content: counter(list-counter);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--clr-teal); /* Tailwind color example (blue-600) */
+    color: white;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  .team {
+    background: green;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .team > * {
+    background: red;
+    margin: 0;
+    padding: 1rem;
+    font-size: var(--fs-sm);
+  }
+</style>

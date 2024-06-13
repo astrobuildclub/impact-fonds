@@ -1,0 +1,21 @@
+---
+const { action, label } = Astro.props;
+---
+
+<div class="share absolute flex gap-4 rounded-full p-4 px-6 align-middle">
+  share
+  <ul class="links flex gap-2">
+    <li>Linkedin</li>
+    <li>X</li>
+    <li>Mail</li>
+  </ul>
+</div>
+
+<style>
+  .share {
+    background-color: var(--clr-teal);
+    bottom: 0;
+    left: 0;
+    transform: translateY(50%);
+  }
+</style>
