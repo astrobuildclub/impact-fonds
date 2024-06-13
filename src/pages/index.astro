@@ -8,6 +8,7 @@ import Image from 'astro/components/Image.astro';
 
 // Components
 import Hero from '../components/Hero.astro';
+import Drawing from '../components/Drawing.astro';
 //import MDXLoader from '../components/MDXLoader.astro';
 
 // MDX Data Imports
@@ -25,6 +26,10 @@ import Contact from '../data/contact.mdx';
 // const allPosts = await Astro.glob('../data/*.mdx');
 // const filteredPosts = formatBlogPosts(allPosts);
 
+// Animation
+import { animate } from 'motion';
+import { inView } from 'motion';
+
 // General Settings
 const title = 'Impact Fonds';
 const subtitle = 'Duurzame Voedselketen Rotterdam';
@@ -33,6 +38,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
 ---
 
 <DefaultLayout {title} {subtitle}>
+  <Drawing />
   <div class="content">
     <Hero {title} {subtitle} />
     <section class="intro">
@@ -191,3 +197,21 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
     font-size: var(--fs-sm);
   }
 </style>
+
+<script>
+  import { animate, inView, stagger } from '@motionone/dom';
+
+  inView('section', ({ target }) => {
+    animate(target, { opacity: [0, 1] }, { duration: 1.5, delay: 0.25 });
+  });
+
+  inView('ul li', (info) => {
+    animate(
+      info.target,
+      { opacity: [0, 1] },
+      {
+        delay: stagger(0.25),
+      },
+    );
+  });
+</script>
