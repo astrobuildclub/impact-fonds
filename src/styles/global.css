@@ -16,8 +16,9 @@
 
   --font-body: font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova',
     'Nimbus Sans', Arial, sans-serif;
+  --font-heading: font-family: new-spirit, serif;
 
-  --clr-salon: #ffdbbb;
+  --clr-salmon: #ffdbbb;
   --clr-orange: #f79433;
   --clr-general: #dbcadb;
   --clr-purple: #806180;
@@ -61,18 +62,19 @@ body {
 
 .popout {
   grid-column: popout;
-  background: pink;
+  /* background: pink; */
 }
 
 .feature {
   grid-column: feature;
-  background: red;
+  /* background: red; */
   grid-template-columns: inherit;
 }
 
 .full-width {
   grid-column: full;
   grid-template-columns: inherit;
+  background: var(--clr-salmon);
 }
 
 .full-right {
@@ -85,7 +87,7 @@ body {
 
 section {
   /* padding: var(--gap); */
-  background-color: rgb(228, 228, 228);
+  /* background-color: rgb(228, 228, 228); */
   /* border-radius: 0.5rem; */
   margin: 1rem 0;
 }

@@ -38,8 +38,8 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
 ---
 
 <DefaultLayout {title} {subtitle}>
-  <Drawing />
-  <div class="content">
+  <div class="content relative overflow-hidden">
+    <Drawing />
     <Hero {title} {subtitle} />
     <section class="intro">
       <Intro />
@@ -122,6 +122,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
     </section>
   </div>
 </DefaultLayout>
+
 <style is:global>
   body {
     font-size: 1rem;
@@ -144,6 +145,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
     line-height: 1;
     color: red;
     margin-block: 1.25rem;
+    font-family: var(--font-heading);
   }
   p {
     font-size: var(--fs-base);
