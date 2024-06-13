@@ -4,7 +4,6 @@ import '../styles/global.css';
 
 // Components
 import { SEO } from 'astro-seo';
-import { ViewTransitions } from 'astro:transitions';
 
 const { title, subtitle, description } = Astro.props;
 let seo_title = title.concat(' ', subtitle);
@@ -47,7 +46,7 @@ let seo_title = title.concat(' ', subtitle);
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Impact Fonds Duurzame Voedselketen Rotterdam</title>
-    <ViewTransitions />
+    <link rel="stylesheet" href="https://use.typekit.net/tmw4ewt.css" />
   </head>
   <body class="">
     <slot />
