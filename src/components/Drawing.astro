@@ -2,7 +2,7 @@
 
 ---
 
-<div class="linewrapper">
+<div class="drawing hidden sm:hidden lg:block">
   <img src="../assets/img/bird.svg" class="bird" />
   <svg
     width="161"
@@ -35,9 +35,10 @@
     outline: red solid 1px;
   } */
 
-  .linewrapper {
+  .drawing {
+    /* display: none; */
+    display: unset;
     height: 100%;
-    overflow: hidden;
   }
   .bird {
     width: 5vw;
@@ -60,7 +61,7 @@
     if (!svg) return;
 
     const length = svg.getTotalLength();
-    const speedFactor = 0.8; // Pas deze waarde aan om de snelheid te wijzigen
+    const speedFactor = 0.75; // Pas deze waarde aan om de snelheid te wijzigen
 
     // start positioning of svg drawing
     svg.style.strokeDasharray = `${length}`;

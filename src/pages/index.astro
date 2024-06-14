@@ -64,10 +64,10 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
       <!-- Dealflow -->
       <div class="popout">
         <div class="cols grid gap-8 md:grid-cols-12">
-          <div class="md:col-span-8">
+          <div class="md:col-span-7">
             <DealflowText />
           </div>
-          <div class="md:col-span-4">
+          <div class="md:col-span-5">
             <DealflowTable />
           </div>
         </div>
@@ -98,7 +98,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
       <Team />
     </section>
 
-    <section class="invest full-left grid grid-cols-subgrid py-12">
+    <section class="invest full-left grid grid-cols-subgrid bg-slate-200 py-12">
       <!-- Invest -->
       <div>
         <Invest />
@@ -141,11 +141,12 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
   }
 
   h3 {
-    font-size: var(--fs-2xl);
-    line-height: 1;
-    color: red;
+    font-size: var(--fs-xl);
+    line-height: 112.5%;
+    /* color: red; */
     margin-block: 1.25rem;
     font-family: var(--font-heading);
+    font-weight: 700;
   }
   p {
     font-size: var(--fs-base);
@@ -186,17 +187,20 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
     font-weight: bold;
   }
   .team {
-    background: green;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
+    margin-block: 1rem;
   }
 
   .team > * {
-    background: red;
+    background: rgba(var(--clr-teal-rgb), 0.4);
+
     margin: 0;
-    padding: 1rem;
+    padding: 1.5rem;
     font-size: var(--fs-sm);
+    line-height: 150%;
+    border-radius: 0.875rem;
   }
 </style>
 
@@ -204,7 +208,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
   import { animate, inView, stagger } from '@motionone/dom';
 
   inView('section', ({ target }) => {
-    animate(target, { opacity: [0, 1] }, { duration: 1.5, delay: 0.25 });
+    animate(target, { opacity: [0, 1] }, { duration: 1, delay: 0.25 });
   });
 
   inView('ul li', (info) => {
