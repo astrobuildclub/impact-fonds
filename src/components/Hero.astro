@@ -7,7 +7,7 @@ const { title, subtitle } = Astro.props;
 ---
 
 <header
-  class="full-right rounded-left hero overlay relative mb-12 grid grid-cols-subgrid content-center"
+  class="full-right hero overlay relative mb-12 grid grid-cols-subgrid content-center rounded-bl"
 >
   <div class="title">
     <h1 class="text-white md:text-5xl lg:text-6xl">
@@ -24,7 +24,6 @@ const { title, subtitle } = Astro.props;
   .overlay {
     border-image: linear-gradient(hsla(0, 0%, 0%, 0.291), hsla(0, 0%, 0%, 0.46))
       fill 1;
-    border-radius: var(--radius-left);
   }
 
   .hero {

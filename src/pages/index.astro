@@ -80,7 +80,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
       <Samenwerking />
     </section>
 
-    <section class="full-left rounded-right">
+    <section class="full-left rounded-right overflow-hidden">
       <!-- Boer -->
       <Image
         src="/assets/img/img-farmer.png"
@@ -232,6 +232,10 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
 
   .rounded-right {
     border-radius: var(--radius-right);
+  }
+
+  .rounded-bl {
+    border-radius: 0 0 0 var(--radius-default);
   }
 
   .rounded-left {

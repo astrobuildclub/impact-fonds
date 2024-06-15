@@ -27,7 +27,7 @@
   --clr-teal-rgb: 60, 193, 153;
   --clr-blue: #151f52;
 
-  --radius-default: 1vw;
+  --radius-default: clamp(1rem, 0.7692rem + 1.0256vw, 2rem);
   --radius-left: var(--radius-default) 0 0 var(--radius-default);
   --radius-right: 0 var(--radius-default) var(--radius-default) 0;
 }
