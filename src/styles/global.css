@@ -1,7 +1,7 @@
-/* The integration's default injected base.css file */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import url('https://use.typekit.net/tmw4ewt.css');
 
 :root {
@@ -26,9 +26,11 @@
   --clr-teal: rgb(60, 193, 153);
   --clr-teal-rgb: 60, 193, 153;
   --clr-blue: #151f52;
-}
 
-@import url('https://p.typekit.net/p.css?s=1&k=tmw4ewt&ht=tk&f=45692.45695.53711&a=270133&app=typekit&e=css');
+  --radius-default: 1vw;
+  --radius-left: var(--radius-default) 0 0 var(--radius-default);
+  --radius-right: 0 var(--radius-default) var(--radius-default) 0;
+}
 
 html,
 body {
@@ -55,6 +57,18 @@ body {
     var(--full) [full-end];
 }
 
+.bg-default {
+  background: var(--clr-general);
+}
+
+.bg-purple {
+  background: var(--clr-purple);
+}
+
+.bg-salmon {
+  background: var(--clr-salmon);
+}
+
 .content > * {
   grid-column: content;
   display: grid;
@@ -76,7 +90,6 @@ body {
 .full-width {
   grid-column: full;
   grid-template-columns: inherit;
-  background: var(--clr-salmon);
 }
 
 .full-right {
@@ -88,7 +101,7 @@ body {
 }
 
 section {
-  margin: 1rem 0;
+  margin-block: 5vh;
 }
 
 .content-grid > :not(.breakout, .popout, .full-width),

@@ -9,6 +9,7 @@ import Image from 'astro/components/Image.astro';
 // Components
 import Hero from '../components/Hero.astro';
 import Drawing from '../components/Drawing.astro';
+import Partners from '../components/Partners.astro';
 //import MDXLoader from '../components/MDXLoader.astro';
 
 // MDX Data Imports
@@ -21,14 +22,11 @@ import Samenwerking from '../data/samenwerking.mdx';
 import Team from '../data/team.mdx';
 import Invest from '../data/invest.mdx';
 import Contact from '../data/contact.mdx';
+import Markdown from '../data/md-example.mdx';
 
 // Data
 // const allPosts = await Astro.glob('../data/*.mdx');
 // const filteredPosts = formatBlogPosts(allPosts);
-
-// Animation
-import { animate } from 'motion';
-import { inView } from 'motion';
 
 // General Settings
 const title = 'Impact Fonds';
@@ -60,7 +58,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
       <Rendement />
     </section>
 
-    <section class="full-width py-12">
+    <section class="full-width bg-salmon py-20">
       <!-- Dealflow -->
       <div class="popout">
         <div class="cols grid gap-8 md:grid-cols-12">
@@ -82,7 +80,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
       <Samenwerking />
     </section>
 
-    <section class="full-left">
+    <section class="full-left rounded-right">
       <!-- Boer -->
       <Image
         src="/assets/img/img-farmer.png"
@@ -98,7 +96,13 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
       <Team />
     </section>
 
-    <section class="invest full-left grid grid-cols-subgrid bg-slate-200 py-12">
+    <!-- <section>
+      <Markdown />
+    </section> -->
+
+    <section
+      class="invest full-left rounded-right bg-default grid grid-cols-subgrid py-16 pb-20"
+    >
       <!-- Invest -->
       <div>
         <Invest />
@@ -106,18 +110,19 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
     </section>
 
     <section
-      class="contact full-right -mt-16 grid grid-cols-subgrid bg-slate-300 py-12"
+      class="contact full-right rounded-left bg-purple -mt-20 grid grid-cols-subgrid py-16 text-white"
     >
-      <!-- Invest -->
       <div>
         <Contact />
       </div>
     </section>
 
-    <section class="partners">
+    <section class="partners full-width py-10">
       <!-- Invest -->
-      <div>
-        <h3>Partners</h3>
+      <div class="full-width grid">
+        <div class=""><h3>Partners</h3></div>
+
+        <Partners />
       </div>
     </section>
   </div>
@@ -126,6 +131,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
 <style is:global>
   body {
     font-size: 1rem;
+    text-rendering: optimizeLegibility;
   }
 
   p,
@@ -137,14 +143,23 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
   h6 {
     font-family: var(--font-body);
     overflow-wrap: break-word;
-    text-rendering: optimizeLegibility;
   }
 
-  h3 {
+  section > * + *,
+  section div > * + * {
+    margin-block-start: 1rem;
+  }
+
+  h3:first-child {
+    margin-block-start: 0rem;
+  }
+
+  h3,
+  .h3 {
     font-size: var(--fs-xl);
     line-height: 112.5%;
     /* color: red; */
-    margin-block: 1.25rem;
+    margin-block-start: 2rem;
     font-family: var(--font-heading);
     font-weight: 700;
   }
@@ -152,17 +167,22 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
     font-size: var(--fs-base);
     line-height: 166%;
     letter-spacing: 0.0125em;
-    margin-block: 1rem;
   }
 
-  section ul {
+  a {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+  }
+
+  section ol {
     list-style: none;
     margin-block: 0.5rem;
     padding-left: 0;
     counter-reset: list-counter;
   }
 
-  section > ul li {
+  section > ol li {
     counter-increment: list-counter;
     position: relative;
     font-size: var(--fs-base);
@@ -170,7 +190,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
     padding-left: 2.5rem; /* Adjust this based on the size of the circle */
   }
 
-  section > ul li::before {
+  section > ol li::before {
     content: counter(list-counter);
     position: absolute;
     left: 0;
@@ -195,12 +215,33 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
 
   .team > * {
     background: rgba(var(--clr-teal-rgb), 0.4);
-
     margin: 0;
     padding: 1.5rem;
     font-size: var(--fs-sm);
     line-height: 150%;
     border-radius: 0.875rem;
+  }
+
+  section table {
+    /* margin-top: 2rem; */
+  }
+  section table td {
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    padding: 0.5rem;
+  }
+
+  .rounded-right {
+    border-radius: var(--radius-right);
+  }
+
+  .rounded-left {
+    border-radius: var(--radius-left);
+  }
+
+  /* Selecteer de eerste kolom van de tabelcellen en maak de tekst vetgedrukt */
+  table td:first-child,
+  table th:first-child {
+    font-weight: bold;
   }
 </style>
 
