@@ -12,7 +12,7 @@ const { title, subtitle } = Astro.props;
     class="hero overlay grid grid-cols-subgrid content-center overflow-clip rounded-bl"
   >
     <div class="title">
-      <Icon name="logo" size={400} class="block" />
+      <Icon name="logo" class="responsive-icon block" />
       <h1 class="sr-only text-white md:text-5xl lg:text-6xl">
         {title}
       </h1>
@@ -60,15 +60,15 @@ const { title, subtitle } = Astro.props;
   }
 
   .responsive-icon {
-    width: 5vw; /* 10% van de viewport breedte */
-    max-width: 400px; /* Maximale breedte van 50px */
-    height: auto; /* Houd de aspect ratio vast */
+    width: 25vw;
+    max-width: 400px;
+    height: auto;
   }
 
   @media (max-width: 768px) {
     .responsive-icon {
-      width: 15vw; /* 15% van de viewport breedte op kleinere schermen */
-      max-width: 40px; /* Maximale breedte van 40px op kleinere schermen */
+      width: 50vw;
+      max-width: 320px;
     }
   }
 </style>

@@ -42,16 +42,17 @@
   }
   .bird {
     width: 4vw;
+    height: auto;
     position: absolute;
-    top: 15vh;
-    left: clamp(0rem, 6vw, 15vw);
-    /* transform: translateX(50%); */
+    top: calc(20vh);
+    left: clamp(0rem, 5vw, 25vw);
+    transform: translateY(-50%);
   }
 
   svg {
     position: absolute;
     top: 25vh;
-    left: clamp(1rem, 6vw, 15vw);
+    left: clamp(1rem, 5vw, 15vw);
     z-index: -5;
   }
 </style>

@@ -7,10 +7,10 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <div
-  class="share absolute flex items-center justify-center gap-4 rounded-full p-4 px-6 align-middle"
+  class="share absolute flex items-center justify-center gap-3 rounded-full p-4 px-8 align-middle"
 >
   <span>share</span>
-  <ul class="links flex gap-2">
+  <ul class="links flex gap-3">
     <li>
       <a
         href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}`}
@@ -51,6 +51,7 @@ import { Icon } from 'astro-icon/components';
   .share {
     position: absolute;
     background-color: var(--clr-teal);
+    color: white;
     bottom: 0;
     left: 0;
     transform: translateY(50%);
@@ -65,6 +66,6 @@ import { Icon } from 'astro-icon/components';
   }
 
   .links a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    opacity: 0.8;
   }
 </style>
