@@ -1,8 +1,8 @@
+@import url('https://use.typekit.net/tmw4ewt.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://use.typekit.net/tmw4ewt.css');
 
 :root {
   --fs-xs: clamp(0.64rem, -0.01vi + 0.64rem, 0.63rem);
@@ -101,7 +101,7 @@ body {
 }
 
 section {
-  margin-block: 5vh;
+  margin-block: var(--fs-lg);
 }
 
 .content-grid > :not(.breakout, .popout, .full-width),
@@ -112,6 +112,10 @@ section {
 .full-right > :not(.breakout, .full-width, .feature),
 .full-left > :not(.breakout, .full-width, .feature) {
   grid-column: content;
+}
+
+.pr-extra > :not(.breakout, .full-width, .feature) {
+  padding-right: 5vw;
 }
 
 table th {
@@ -125,4 +129,15 @@ table {
 footer {
   background: var(--clr-blue);
   color: white;
+}
+
+@media only screen and (max-width: 1024px) {
+  section {
+    margin-block: 2rem;
+  }
+
+  .full-right {
+    grid-column: full;
+    grid-template-columns: inherit;
+  }
 }

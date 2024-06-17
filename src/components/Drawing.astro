@@ -37,20 +37,21 @@
 
   .drawing {
     /* display: none; */
-    display: unset;
+    /* display: unset; */
     height: 100%;
   }
   .bird {
-    width: 5vw;
+    width: 4vw;
     position: absolute;
     top: 15vh;
-    left: 4vw;
+    left: clamp(0rem, 6vw, 15vw);
+    /* transform: translateX(50%); */
   }
 
   svg {
     position: absolute;
     top: 25vh;
-    left: 4vw;
+    left: clamp(1rem, 6vw, 15vw);
     z-index: -5;
   }
 </style>
@@ -61,7 +62,7 @@
     if (!svg) return;
 
     const length = svg.getTotalLength();
-    const speedFactor = 0.75; // Pas deze waarde aan om de snelheid te wijzigen
+    const speedFactor = 1; // Pas deze waarde aan om de snelheid te wijzigen
 
     // start positioning of svg drawing
     svg.style.strokeDasharray = `${length}`;

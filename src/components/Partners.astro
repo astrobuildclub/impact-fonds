@@ -2,7 +2,7 @@
 
 ---
 
-<article class="wrapper full-width">
+<article class="wrapper full-width mt-12">
   <div class="marquee">
     <div class="marquee__group">
       <svg>
@@ -118,10 +118,10 @@
     --color-bg: #ccc;
     --color-bg-accent: #f4f4f4;
     --size: clamp(5rem, 1rem + 20vmin, 12rem);
-    --gap: calc(var(--size) / 14);
+    --marquee-gap: calc(var(--size) / 12);
     --duration: 60s;
     --scroll-start: 0;
-    --scroll-end: calc(-100% - var(--gap));
+    --scroll-end: calc(-100% - var(--marquee-gap));
   }
 
   @media (prefers-color-scheme: dark) {
@@ -143,7 +143,7 @@
     display: flex;
     overflow: hidden;
     user-select: none;
-    gap: var(--gap);
+    gap: var(--marquee-gap);
     mask-image: linear-gradient(
       var(--mask-direction, to right),
       hsl(0 0% 0% / 0),
@@ -158,7 +158,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: var(--gap);
+    gap: var(--marquee-gap);
     min-width: 100%;
     animation: scroll-x var(--duration) linear infinite;
     margin-block-start: 0rem !important;

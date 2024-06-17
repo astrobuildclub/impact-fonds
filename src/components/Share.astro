@@ -1,21 +1,70 @@
 ---
+const shareUrl = 'https://example.com'; // De URL die je wilt delen
+const title = 'Deel deze pagina';
+const text = 'Bekijk deze interessante pagina!';
 const { action, label } = Astro.props;
+import { Icon } from 'astro-icon/components';
 ---
 
-<div class="share absolute flex gap-4 rounded-full p-4 px-6 align-middle">
-  share
+<div
+  class="share absolute flex items-center justify-center gap-4 rounded-full p-4 px-6 align-middle"
+>
+  <span>share</span>
   <ul class="links flex gap-2">
-    <li>Linkedin</li>
-    <li>X</li>
-    <li>Mail</li>
+    <li>
+      <a
+        href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on LinkedIn"
+      >
+        <Icon name="tabler/linkedin" class="block text-3xl" />
+        <span class="sr-only">LinkedIn</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${text}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on Twitter"
+      >
+        <Icon name="tabler/twitter" class="block text-3xl" />
+        <span class="sr-only">Twitter</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href={`mailto:?subject=${title}&body=${text}%20${shareUrl}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share via email"
+      >
+        <Icon name="tabler/mail" class="block text-3xl" />
+        <span class="sr-only">Mail</span>
+      </a>
+    </li>
   </ul>
 </div>
 
 <style>
   .share {
+    position: absolute;
     background-color: var(--clr-teal);
     bottom: 0;
     left: 0;
     transform: translateY(50%);
+    z-index: 999;
+  }
+
+  .links a {
+    cursor: pointer;
+  }
+  .links a svg {
+    pointer-events: none;
+  }
+
+  .links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
   }
 </style>

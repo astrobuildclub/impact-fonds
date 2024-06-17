@@ -101,7 +101,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
     </section> -->
 
     <section
-      class="invest full-left rounded-right bg-default grid grid-cols-subgrid py-16 pb-20"
+      class="invest full-left rounded-right bg-default pr-extra grid grid-cols-subgrid py-16 pb-20"
     >
       <!-- Invest -->
       <div>
@@ -196,7 +196,7 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    background-color: var(--clr-teal); /* Tailwind color example (blue-600) */
+    background-color: var(--clr-teal);
     color: white;
     border-radius: 50%;
     width: 2rem;
@@ -208,7 +208,8 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
   }
   .team {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
     gap: 1.5rem;
     margin-block: 1rem;
   }
@@ -246,6 +247,17 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
   table td:first-child,
   table th:first-child {
     font-weight: bold;
+  }
+
+  @media only screen and (max-width: 600px) {
+    section {
+      margin-block: 2rem;
+    }
+
+    .full-right {
+      grid-column: full;
+      grid-template-columns: inherit;
+    }
   }
 </style>
 
