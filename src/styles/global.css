@@ -19,6 +19,8 @@
     Arial, sans-serif;
   --font-heading: new-spirit, serif;
 
+  --clr-white: #fff;
+  --clr-black: #000;
   --clr-salmon: #ffdbbb;
   --clr-orange: #f79433;
   --clr-general: #dbcadb;
@@ -36,6 +38,138 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-size: 1rem;
+  text-rendering: optimizeLegibility;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-body);
+  overflow-wrap: break-word;
+}
+
+section > * + *,
+section div > * + * {
+  margin-block-start: 1rem;
+}
+
+h3:first-child {
+  margin-block-start: 0rem;
+}
+
+h3,
+.heading-3 {
+  font-size: var(--fs-xl);
+  line-height: 112.5%;
+  /* color: red; */
+  margin-block-start: 2rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+p {
+  font-size: var(--fs-base);
+  line-height: 166%;
+  letter-spacing: 0.0125em;
+}
+
+a {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+section ol {
+  list-style: none;
+  margin-block: 0.5rem;
+  padding-left: 0;
+  counter-reset: list-counter;
+}
+
+section > ol li {
+  counter-increment: list-counter;
+  position: relative;
+  font-size: var(--fs-base);
+  margin-block: 1rem;
+  padding-left: 2.5rem; /* Adjust this based on the size of the circle */
+}
+
+section > ol li::before {
+  content: counter(list-counter);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--clr-teal);
+  color: var(--clr-black);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: var(--font-heading);
+}
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+  gap: 1.5rem;
+  margin-block: 1rem;
+}
+
+.team > * {
+  background: rgba(var(--clr-teal-rgb), 0.4);
+  margin: 0;
+  padding: 1.5rem;
+  font-size: var(--fs-sm);
+  line-height: 150%;
+  border-radius: 0.875rem;
+}
+
+section table {
+  /* margin-top: 2rem; */
+}
+section table td {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  padding: 0.5rem;
+}
+
+.rounded-right {
+  border-radius: var(--radius-right);
+}
+
+.rounded-bl {
+  border-radius: 0 0 0 var(--radius-default);
+}
+
+.rounded-left {
+  border-radius: var(--radius-left);
+}
+
+/* Selecteer de eerste kolom van de tabelcellen en maak de tekst vetgedrukt */
+table td:first-child,
+table th:first-child {
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  section {
+    margin-block: 2rem;
+  }
+
+  .full-right {
+    grid-column: full;
+    grid-template-columns: inherit;
+  }
 }
 
 .content {
