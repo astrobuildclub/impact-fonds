@@ -132,16 +132,38 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
 <script>
   import { animate, inView, stagger } from '@motionone/dom';
 
+  // Animatie voor de secties
   inView('section', ({ target }) => {
-    animate(target, { opacity: [0, 1] }, { duration: 1, delay: 0.25 });
+    animate(
+      target,
+      { opacity: [0, 1], transform: 'none' },
+      { duration: 0.5, delay: 0.25 },
+    );
   });
 
-  inView('ul li', (info) => {
+  // Functie om de lijstitems te animeren
+  const animateListItems = () => {
+    const listItems = document.querySelectorAll('ul li');
     animate(
-      info.target,
-      { opacity: [0, 1] },
+      listItems,
+      { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0px)'] },
       {
-        delay: stagger(0.25),
+        delay: stagger(0.1), // Vertraag elke animatie met 0.1 seconden
+      },
+    );
+  };
+
+  // Zorg ervoor dat de animatie wordt uitgevoerd wanneer de ul of ol in de viewport komt
+  inView('ul, ol', animateListItems);
+
+  // Alternatief: animatie per item als het in beeld komt
+  inView('ul li, ol li', ({ target }) => {
+    animate(
+      target,
+      { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0px)'] },
+      {
+        duration: 0.5,
+        delay: stagger(0.2), // Vertraag elke animatie met 0.1 seconden
       },
     );
   });

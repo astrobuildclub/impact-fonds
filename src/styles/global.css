@@ -236,6 +236,7 @@ table th:first-child {
 
 section {
   margin-block: var(--fs-lg);
+  transform: translateY(2rem);
 }
 
 .content-grid > :not(.breakout, .popout, .full-width),
