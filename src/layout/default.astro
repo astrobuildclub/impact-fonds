@@ -16,14 +16,14 @@ let seo_title = title.concat(' ', subtitle);
       description={description}
       openGraph={{
         basic: {
-          title: 'A Very Descriptive Title',
-          type: 'A type.',
+          title: 'Impactfonds Duurzame Voedselketen Rotterdam (iFDV-Rotterdam)',
+          type: 'Website',
           image:
             'https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png',
         },
       }}
       twitter={{
-        creator: '@jonasmerlins1',
+        creator: '',
       }}
       extend={{
         // extending the default link tags
@@ -35,8 +35,16 @@ let seo_title = title.concat(' ', subtitle);
             content:
               'https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png',
           },
-          { name: 'twitter:title', content: 'Tinker Tailor Soldier Spy' },
-          { name: 'twitter:description', content: 'Agent' },
+          {
+            name: 'twitter:title',
+            content:
+              'Impactfonds Duurzame Voedselketen Rotterdam (iFDV-Rotterdam)',
+          },
+          {
+            name: 'twitter:description',
+            content:
+              'Impactfonds duurzame voedselketen Rotterdam (IDVR) verstrekt impactleningen aan verwerkers, retailers en boeren die een duurzame voedselketen in groot Rotterdam mogelijk maken.',
+          },
         ],
       }}
     />

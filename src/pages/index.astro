@@ -119,7 +119,16 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
     <section class="partners full-width py-10">
       <!-- Invest -->
       <div class="full-width grid">
-        <div class=""><h3>Partners</h3></div>
+        <div class="wrapper grid grid-cols-4 items-center">
+          <h3 class="col-span-3">Partners Rotterdam de Boer Op!</h3>
+          <Image
+            src="/assets/img/Nationale Postcode Loterij.png"
+            alt="Nationale Postcode Loterij."
+            width="150"
+            height="100"
+            class="w-full"
+          />
+        </div>
 
         <Partners />
       </div>
@@ -127,7 +136,10 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
   </div>
 </DefaultLayout>
 
-<style is:global></style>
+<style>
+  .parterns .wrapper {
+  }
+</style>
 
 <script>
   import { animate, inView, stagger } from '@motionone/dom';
