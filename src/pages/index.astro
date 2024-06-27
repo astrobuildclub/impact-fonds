@@ -1,7 +1,7 @@
 ---
 // Layout
 import DefaultLayout from '../layout/default.astro';
-import Image from 'astro/components/Image.astro';
+import { Image } from 'astro:assets';
 
 // Libs
 // import { formatBlogPosts } from '../js/utils';
@@ -22,6 +22,8 @@ import Samenwerking from '../data/samenwerking.mdx';
 import Team from '../data/team.mdx';
 import Invest from '../data/invest.mdx';
 import Contact from '../data/contact.mdx';
+
+import ImageInfoGr from '../assets/img/img-infographic.png';
 
 // Data
 // const allPosts = await Astro.glob('../data/*.mdx');
@@ -44,11 +46,14 @@ const subtitle = 'Duurzame Voedselketen Rotterdam';
 
     <section class="popout">
       <!-- Infrographic -->
+
       <Image
-        src="/assets/img/img-infographic.png"
-        alt="Mooi Rotterdams Platteland."
-        width="1600"
-        height="900"
+        src={ImageInfoGr}
+        widths={[240, 540, 720, ImageInfoGr.width]}
+        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${ImageInfoGr.width}px`}
+        alt="Traktor in het het veld."
+        class="absolute left-0 top-0 h-full w-full object-cover"
+        loading="lazy"
         class="rounded-xl"
       />
     </section>

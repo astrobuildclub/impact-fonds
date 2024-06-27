@@ -3,13 +3,16 @@
 import '../styles/global.css';
 import Share from '../components/Share.astro';
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import ImageHero from '../assets/img/img-tractor.png';
+
 // Data
 const { title, subtitle } = Astro.props;
 ---
 
 <header class="full-right relative mb-12 grid grid-cols-subgrid">
   <div
-    class="hero overlay grid grid-cols-subgrid content-center overflow-clip rounded-bl"
+    class="hero grid grid-cols-subgrid content-center overflow-clip rounded-bl"
   >
     <div class="title">
       <Icon name="logo" class="responsive-icon block" />
@@ -20,6 +23,15 @@ const { title, subtitle } = Astro.props;
         {subtitle}
       </h2>
     </div>
+
+    <Image
+      src={ImageHero}
+      widths={[240, 540, 720, ImageHero.width]}
+      sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${ImageHero.width}px`}
+      alt="Traktor in het het veld."
+      class="absolute left-0 top-0 h-full w-full object-cover"
+      loading="eager"
+    />
   </div>
   <Share />
 </header>
@@ -31,10 +43,10 @@ const { title, subtitle } = Astro.props;
   }
 
   .hero {
-    background-image: url('/assets/img/img-tractor.png');
+    /* background-image: url('/assets/img/img-tractor.png');
     background-size: cover;
     background-position: center center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     min-block-size: calc(30vh + 10vw);
     grid-column: inherit;
     grid-template-columns: subgrid;
