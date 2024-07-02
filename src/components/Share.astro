@@ -1,13 +1,18 @@
 ---
-const shareUrl = 'https://example.com'; // De URL die je wilt delen
+const shareUrl = '/'; // De URL die je wilt delen
 const title = 'Deel deze pagina';
 const text = 'Bekijk deze interessante pagina!';
 const { action, label } = Astro.props;
 import { Icon } from 'astro-icon/components';
+const { class: className, ...rest } = Astro.props;
 ---
 
 <div
-  class="share absolute flex items-center gap-2 rounded-full p-2 px-6 align-middle md:px-8"
+  class:list={[
+    'share flex items-center gap-2 rounded-full p-2 px-6 align-middle md:px-8',
+    className,
+  ]}
+  {...rest}
 >
   <span class="inline-block">share</span>
   <ul class="links flex flex-row items-center justify-center md:gap-2">
@@ -52,9 +57,13 @@ import { Icon } from 'astro-icon/components';
 
 <style>
   .share {
-    position: absolute;
     background-color: var(--clr-teal);
     color: black;
+    position: relative;
+  }
+
+  .header {
+    position: absolute;
     bottom: 0;
     left: 0;
     transform: translateY(50%);

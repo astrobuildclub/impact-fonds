@@ -1,0 +1,36 @@
+---
+const { label, href } = Astro.props;
+
+import { Icon } from 'astro-icon/components';
+---
+
+<!-- <a
+  href={href}
+  class="custom-button flex items-center justify-between rounded-full p-4 px-8 text-white"
+>
+  <span>{label}</span>
+  <Icon name="arrow-right" class="ml-4" />
+</a> -->
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Share on LinkedIn "
+  class="custom-button flex items-center justify-between gap-2 rounded-full p-4 px-8 text-white"
+>
+  <span class="text-sm md:text-base">{label}</span>
+  <Icon name="tabler:arrow-right" class="block text-3xl" />
+</a>
+
+<style>
+  .custom-button {
+    background-color: #80657f; /* Vervang dit met de juiste kleurcode */
+    font-family: var(--font-heading);
+
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 100vw;
+    text-decoration: none;
+  }
+</style>

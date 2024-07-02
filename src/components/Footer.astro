@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import Share from './Share.astro';
+import LinkButton from './LinkButton.astro';
+
+interface Logo {
+  src: ImageMetadata;
+  alt: string;
+}
+
+const logos: Logo[] = await Promise.all(
+  Object.entries(
+    import.meta.glob('../assets/logos/*.png', { eager: true }),
+  ).map(async ([path, module]) => {
+    const src = (module as any).default;
+    const alt = path.split('/').pop()?.replace('.png', '') ?? '';
+    return { src, alt };
+  }),
+);
+
+// console.log("Gevonden logo's:", logos);
+---
+
+<footer class="w-full bg-gray-800">
+  <div class="mx-auto flex flex-col flex-wrap gap-8 p-12">
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <Share class="footer" />
+      <LinkButton
+        label="Social Impact Fonds Rotterdam"
+        href="https://sifr.nl/"
+      />
+      <LinkButton label="Rotterdam de Boer op!" href="https://example.com" />
+    </div>
+    <p class="text-balance text-center text-xs text-white">
+      Impact Fonds Duurzame Voedselketen Rotterdam is een initiatief van Social
+      Impact Fonds Rotterdam en Rotterdam de Boer op!
+    </p>
+  </div>
+</footer>

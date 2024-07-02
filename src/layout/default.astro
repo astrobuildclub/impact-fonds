@@ -4,6 +4,7 @@ import '../styles/global.css';
 
 // Components
 import { SEO } from 'astro-seo';
+import Footer from '../components/Footer.astro';
 
 const { title, subtitle, description } = Astro.props;
 let seo_title = title.concat(' ', subtitle);
@@ -56,13 +57,6 @@ let seo_title = title.concat(' ', subtitle);
   </head>
   <body class="">
     <slot />
-    <footer class="w-full bg-gray-800">
-      <div class="container mx-auto max-w-screen-lg p-8">
-        <p class="text-center text-xs text-white">
-          Impact Fonds Duurzame Voedselketen Rotterdam is een initiatief van
-          Social Impact Fonds Rotterdam en Rotterdam de Boer op!
-        </p>
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>
