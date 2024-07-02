@@ -5,6 +5,7 @@ import Share from '../components/Share.astro';
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import ImageHero from '../assets/img/img-tractor.png';
+import LinkButton from './LinkButton.astro';
 
 // Data
 const { title, subtitle } = Astro.props;
@@ -33,13 +34,33 @@ const { title, subtitle } = Astro.props;
       loading="eager"
     />
   </div>
-  <Share class="header" />
+  <div class="buttons full-right flex items-center gap-4">
+    <Share class="flex-shrink" />
+    <LinkButton
+      label="Social Impact Fonds Rotterdam"
+      href="https://sifr.nl/"
+      class="hidden lg:inline-flex"
+    />
+    <LinkButton
+      label="Rotterdam de Boer op!"
+      href="https://www.rotterdamdeboerop.nl/"
+      class="hidden lg:inline-flex"
+    />
+  </div>
 </header>
 
 <style>
   .overlay {
     /* border-image: linear-gradient(hsla(0, 0%, 0%, 0.291), hsla(0, 0%, 0%, 0.46))
       fill 1; */
+  }
+
+  .buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(50%);
+    z-index: 999;
   }
 
   .hero {

@@ -67,7 +67,7 @@ h3:first-child {
 
 h3,
 .heading-3 {
-  font-size: var(--fs-xl);
+  font-size: var(--fs-lg);
   line-height: 112.5%;
   /* color: red; */
   margin-block-start: 2rem;
