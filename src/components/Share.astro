@@ -2,7 +2,6 @@
 const shareUrl = '/'; // De URL die je wilt delen
 const title = 'Deel deze pagina';
 const text = 'Bekijk deze interessante pagina!';
-const { action, label } = Astro.props;
 import { Icon } from 'astro-icon/components';
 const { class: className, ...rest } = Astro.props;
 ---
@@ -24,7 +23,7 @@ const { class: className, ...rest } = Astro.props;
         aria-label="Share on LinkedIn"
         class="inline-block p-2"
       >
-        <Icon name="tabler/linkedin" class="block text-3xl" />
+        <Icon name="tabler:brand-linkedin" class="block text-3xl" />
         <span class="sr-only">LinkedIn</span>
       </a>
     </li>
@@ -33,10 +32,10 @@ const { class: className, ...rest } = Astro.props;
         href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${text}`}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Share on Twitter"
+        aria-label="Share on Twitter or X"
         class="inline-block p-2"
       >
-        <Icon name="tabler/twitter" class="block text-3xl" />
+        <Icon name="tabler:brand-x" class="block text-3xl" />
         <span class="sr-only">Twitter</span>
       </a>
     </li>
@@ -48,7 +47,7 @@ const { class: className, ...rest } = Astro.props;
         aria-label="Share via email"
         class="inline-block p-2"
       >
-        <Icon name="tabler/mail" class="block text-3xl" />
+        <Icon name="tabler:mail" class="block text-3xl" />
         <span class="sr-only">Mail</span>
       </a>
     </li>
