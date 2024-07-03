@@ -13,6 +13,12 @@ let seo_title = title.concat(' ', subtitle);
 <html lang="nl" dir="ltr">
   <head>
     <title>{title} - {subtitle}</title>
+    <meta charset="utf-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <SEO
       title={seo_title}
@@ -49,11 +55,6 @@ let seo_title = title.concat(' ', subtitle);
         ],
       }}
     />
-
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
 
     <link rel="stylesheet" href="https://use.typekit.net/tmw4ewt.css" />
   </head>
