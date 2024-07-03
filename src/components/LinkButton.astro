@@ -6,10 +6,9 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <a
-  href={href}
   target="_blank"
   rel="noopener noreferrer"
-  aria-label="Share on LinkedIn "
+  aria-label={btnlabel}
   class:list={[
     'flex items-center justify-between gap-2 rounded-full p-4 px-8 text-white',
     className,
