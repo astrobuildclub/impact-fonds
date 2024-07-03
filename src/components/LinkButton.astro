@@ -1,12 +1,12 @@
 ---
-const { btnlabel, btnlink } = Astro.props;
+const { btnlabel, href } = Astro.props;
 const { class: className, ...rest } = Astro.props;
 
 import { Icon } from 'astro-icon/components';
 ---
 
 <a
-  href={btnlink}
+  href={href}
   target="_blank"
   rel="noopener noreferrer"
   aria-label="Share on LinkedIn "
