@@ -10,8 +10,10 @@ const { title, subtitle, description } = Astro.props;
 let seo_title = title.concat(' ', subtitle);
 ---
 
-<html lang="nl">
+<html lang="nl" dir="ltr">
   <head>
+    <title>{title} - {subtitle}</title>
+
     <SEO
       title={seo_title}
       description={description}
