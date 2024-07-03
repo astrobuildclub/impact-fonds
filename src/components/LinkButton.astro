@@ -1,5 +1,5 @@
 ---
-const { label, href } = Astro.props;
+const { btnlabel, href } = Astro.props;
 const { class: className, ...rest } = Astro.props;
 
 import { Icon } from 'astro-icon/components';
@@ -16,7 +16,7 @@ import { Icon } from 'astro-icon/components';
   ]}
   {...rest}
 >
-  <span class="text-xs md:text-sm">{label}</span>
+  <span class="text-xs md:text-sm">{btnlabel}</span>
   <Icon name="tabler:arrow-right" class="block text-3xl" />
 </a>
 
