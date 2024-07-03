@@ -6,4 +6,5 @@ import icons from 'astro-icon'; // Zorg ervoor dat je dit correct importeert als
 // https://astro.build/config
 export default defineConfig({
   integrations: [icons(), mdx(), tailwind({ applyBaseStyles: false })],
+  site: 'https://IFDV.nl',
 });
