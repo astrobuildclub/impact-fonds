@@ -66,6 +66,8 @@ const { class: className, ...rest } = Astro.props;
 
   .links a {
     cursor: pointer;
+    border-radius: 100vw;
+    transition: all 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
   }
   .links a svg {
     pointer-events: none;
@@ -73,5 +75,6 @@ const { class: className, ...rest } = Astro.props;
 
   .links a:hover {
     opacity: 0.8;
+    background: rgba(255, 255, 255, 0.2);
   }
 </style>
