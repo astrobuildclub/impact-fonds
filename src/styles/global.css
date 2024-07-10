@@ -156,6 +156,13 @@ section table td {
 table td:first-child,
 table th:first-child {
   font-weight: bold;
+  width: 18ch;
+  text-wrap: balance;
+}
+
+table td em,
+table th em {
+  font-weight: normal;
 }
 
 @media only screen and (max-width: 600px) {
