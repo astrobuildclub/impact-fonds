@@ -5,18 +5,20 @@ import LinkButton from './LinkButton.astro';
 
 <footer class="w-full bg-gray-800">
   <div class="mx-auto flex flex-col flex-wrap gap-8 p-12">
-    <div class="flex flex-wrap items-center justify-center gap-4">
+    <div
+      class="flex flex-col flex-wrap items-center justify-center gap-4 lg:flex-row"
+    >
       <Share class="footer w-full md:w-auto" />
 
       <LinkButton
         btnlabel="Rotterdam de boer op!"
         href="https://www.rotterdamdeboerop.nl/"
-        class="w-full md:w-1/4"
+        class="w-full md:w-96"
       />
       <LinkButton
         btnlabel="Social Impact Fonds Rotterdam"
         href="https://sifr.nl/"
-        class="w-full md:w-1/4"
+        class="w-full md:w-96"
       />
     </div>
     <p class="text-balance text-center text-xs text-white">

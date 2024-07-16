@@ -133,6 +133,7 @@ section > ol li::before {
   font-size: var(--fs-sm);
   line-height: 150%;
   border-radius: 0.875rem;
+  position: relative;
 }
 
 section table td {
