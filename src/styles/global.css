@@ -134,6 +134,9 @@ section > ol li::before {
   line-height: 150%;
   border-radius: 0.875rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 section table td {
