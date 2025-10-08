@@ -70,31 +70,33 @@
   }
 </style>
 
-<script>
-  //@ts-nocheck
-  document.addEventListener('DOMContentLoaded', () => {
-    const mask = document.getElementById('mask') as SVGPathElement | null;
-    if (!mask) return;
+<script is:inline>
+  // Only run in browser environment
+  if (typeof document !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+      const mask = document.getElementById('mask');
+      if (!mask) return;
 
-    // Get the path element directly, not through undefined svgPath variable
-    const svgPath = document.getElementById('svgPath') as SVGPathElement | null;
-    if (!svgPath) return;
+      const svgPath = document.getElementById('svgPath');
+      if (!svgPath) return;
 
-    const l = svgPath.getTotalLength();
-    const dasharray = l;
-    let dashoffset = l;
+      const l = svgPath.getTotalLength();
+      const dasharray = l;
+      let dashoffset = l;
 
-    mask.style.strokeDasharray = dasharray.toString();
-    mask.style.strokeDashoffset = dashoffset.toString();
+      mask.style.strokeDasharray = dasharray.toString();
+      mask.style.strokeDashoffset = dashoffset.toString();
 
-    window.addEventListener('scroll', () => {
-      const top = document.body.scrollTop + document.documentElement.scrollTop;
-      const sHeight = document.documentElement.scrollHeight;
-      const cHeight = document.documentElement.clientHeight;
+      window.addEventListener('scroll', () => {
+        const top =
+          document.body.scrollTop + document.documentElement.scrollTop;
+        const sHeight = document.documentElement.scrollHeight;
+        const cHeight = document.documentElement.clientHeight;
 
-      const scrollie = l - (top * l) / (sHeight - cHeight);
+        const scrollie = l - (top * l) / (sHeight - cHeight);
 
-      mask.style.strokeDashoffset = scrollie.toString();
+        mask.style.strokeDashoffset = scrollie.toString();
+      });
     });
-  });
+  }
 </script>
