@@ -1,0 +1,49 @@
+---
+const linkedinUrl =
+  'https://www.linkedin.com/company/impact-fonds-duurzame-voedselketen-rotterdam/';
+import { Icon } from 'astro-icon/components';
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+  class:list={[
+    'social flex items-center justify-center gap-2 rounded-full p-2 px-6 align-middle md:px-8',
+    className,
+  ]}
+  {...rest}
+>
+  <span class="inline-block">volg ons</span>
+  <a
+    href={linkedinUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Volg ons op LinkedIn"
+    class="inline-block p-2"
+  >
+    <Icon name="tabler:brand-linkedin" class="block text-3xl" />
+    <span class="sr-only">LinkedIn</span>
+  </a>
+</div>
+
+<style>
+  .social {
+    background-color: var(--clr-teal);
+    color: black;
+    position: relative;
+  }
+
+  .social a {
+    cursor: pointer;
+    border-radius: 100vw;
+    transition: all 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+
+  .social a svg {
+    pointer-events: none;
+  }
+
+  .social a:hover {
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.2);
+  }
+</style>
